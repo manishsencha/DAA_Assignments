@@ -311,28 +311,23 @@ int main()
     for (int x = 1; x <= 5; ++x)
     {
         cout << "\"data_" << x << "\": [" << endl;
-        for (int t = 1; t <= 500; ++t)
+        for (int t = 1000; t <= 10000; t+= 1000)
         {
             cout << "{" << endl;
-            cout << "\"input\": [" << endl;
+            cout << "\"input_size\": " << endl;
             int size = t;
+            cout << size << ',' << endl;
             vector<int> v(size);
             for (int i = 0; i < size; ++i)
             {
                 v[i] = rand() % 10000;
-                cout << v[i];
-                if (i != size - 1)
-                    cout << ", ";
             }
-
-            cout << "]," << endl;
 
             vector<int> res = v;
 
             auto start = high_resolution_clock::now();
             if (x == 1)
             {
-
                 merge_sort_one(v, 0, v.size() - 1);
             }
             else if (x == 2)
@@ -355,24 +350,12 @@ int main()
 
             auto duration = duration_cast<microseconds>(stop - start);
 
-            cout << "\"output\": [" << endl;
-            if (x == 3)
-                v = res;
-            for (auto i : v)
-            {
-                cout << i;
-                if (i != v.back())
-                    cout << ", ";
-            }
-
-            cout << "]," << endl;
-
             auto time = duration.count();
 
             cout << "\"time\":" << time << endl
                  << "}";
 
-            if (t != 500)
+            if (t != 10000)
                 cout << ",";
         }
         cout << "]";

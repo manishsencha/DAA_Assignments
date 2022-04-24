@@ -311,7 +311,7 @@ int main()
     for (int x = 1; x <= 5; ++x)
     {
         cout << "\"data_" << x << "\": [" << endl;
-        for (int t = 1; t <= 500; ++t)
+        for (int t = 1; t <= 500000; t+= 1000)
         {
             cout << "{" << endl;
             cout << "\"input\": [" << endl;

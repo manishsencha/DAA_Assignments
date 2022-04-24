@@ -28,7 +28,7 @@ float dist(Point first, Point second)
 }
 float closestPair(vector<Point> &p)
 {
-    float min = INT_MIN;
+    float min = INT_MAX;
     int size = p.size();
     for (int i = 0; i < size; ++i)
     {
@@ -48,14 +48,15 @@ int main()
 {
     freopen("output_min_point_distance.json", "w", stdout);
     cout << "{\n \"data\":[";
-    for (int t = 2; t < 1000; t++)
+    srand(time(0));
+    for (int t = 100; t <= 1000; t+=100)
     {
         cout << "{\n \"input_size\":" << t << ",\n";
         vector<Point> p(t);
         for (int i = 0; i < t; i++)
         {
-            int x = rand() % 201 + (-100);
-            int y = rand() % 201 + (-100);
+            int x = rand() % 501 + (-250);
+            int y = rand() % 501 + (-250);
             Point *point = new Point(x, y);
             p[i] = *point;
         }
@@ -70,6 +71,7 @@ int main()
         {
             cout << ',';
         }
+        p.clear();
     }
     cout << "]}";
     return 0;

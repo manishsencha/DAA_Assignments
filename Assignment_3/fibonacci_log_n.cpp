@@ -37,17 +37,17 @@ int main()
 {
     freopen("output_fibonacci_log_n.json", "w", stdout);
     cout << "{\n \"data\":[\n";
-    for (int i = 0; i < 30000; ++i)
+    for (int i = 0; i <= 10000; i += 1000)
     {
         cout << "{\n";
         cout << "\"input_size\":" << i << ",\n";
         auto start = high_resolution_clock::now();
-        auto res = fib(92);
+        auto res = fib(i);
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<nanoseconds>(stop - start);
         cout << "\"time\":" << duration.count();
         cout << "}";
-        if (i < 29999)
+        if (i < 9999)
         {
             cout << ",";
         }

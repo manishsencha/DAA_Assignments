@@ -23,7 +23,7 @@ int main()
 {
     freopen("output_max_jump.json", "w", stdout);
     cout << "{\"data\":[\n";
-    for (int t = 2; t < 10000; t++)
+    for (int t = 1000; t <= 10000; t += 1000)
     {
 
         vector<int> v(t);

@@ -22,7 +22,7 @@ int main()
 {
     freopen("output_majority_element.json", "w", stdout);
     std::cout << "{\n \"data\" : [\n";
-    for (int i = 1; i < 1000; ++i)
+    for (int i = 0; i <= 1000; i+= 100)
     {
         std::cout << "{\"input_size\":" << i << ",\n";
         std::cout << "\"input\":[";
